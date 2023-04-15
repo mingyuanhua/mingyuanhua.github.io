@@ -16,8 +16,8 @@ const Game: React.FC = () => {
       0.1,
       1000
     );
-    camera.position.set(5, 5, 5); // 设置相机位置
-    camera.lookAt(new THREE.Vector3(0, 0, 0)); // 设置相机视角朝向原点
+    camera.position.set(5, 5, 5);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     // 创建渲染器
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current! });
@@ -25,11 +25,17 @@ const Game: React.FC = () => {
 
     // 创建太阳、地球和月球的几何体和材质
     const sunGeometry = new THREE.SphereGeometry(1, 32, 32);
-    const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xfdb813 });
+    const sunMaterial = new THREE.MeshPhongMaterial({
+      color: 0xfdb813, // 修改太阳的颜色
+      emissive: 0xfdb813, // 修改太阳的发光颜色
+      emissiveIntensity: 1, // 修改太阳的发光强度
+      specular: 0x111111, // 修改太阳的镜面反射颜色
+      shininess: 30 // 修改太阳的高光亮度
+    });
     const earthGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const earthMaterial = new THREE.MeshBasicMaterial({ color: 0x0077ff });
+    const earthMaterial = new THREE.MeshPhongMaterial({ color: 0x0077ff });
     const moonGeometry = new THREE.SphereGeometry(0.2, 32, 32);
-    const moonMaterial = new THREE.MeshBasicMaterial({ color: 0x777777 });
+    const moonMaterial = new THREE.MeshPhongMaterial({ color: 0x777777 });
 
     // 创建太阳、地球和月球的网格对象
     const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -37,8 +43,8 @@ const Game: React.FC = () => {
     const moonMesh = new THREE.Mesh(moonGeometry, moonMaterial);
 
     // 设置地球和月球的初始位置
-    earthMesh.position.x = 4; // 地球绕着 x 轴移动 4 个单位
-    moonMesh.position.x = 1; // 月球绕着 x 轴移动 1 个单位
+    earthMesh.position.x = 4;
+    moonMesh.position.x = 1;
 
     // 将地球和月球添加到太阳上
     sunMesh.add(earthMesh);
@@ -47,9 +53,15 @@ const Game: React.FC = () => {
     // 将太阳、地球和月球添加到场景中
     scene.add(sunMesh);
 
+    // 添加光源
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    scene.add(pointLight);
+
     // 创建一个控制器控制场景中的物体
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableRotate = true; // 启用旋转控制
+    controls.enableRotate = true;
 
     // 动画循环
     const animate = () => {
