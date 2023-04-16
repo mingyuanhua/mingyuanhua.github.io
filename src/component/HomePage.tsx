@@ -46,11 +46,21 @@ const HomePageBackground = styled.div`
   height: 100%;
 `;
 
-interface Theme {
-  background: React.ReactNode;
-  link: string;
-  name: string;
-}
+export const Links = styled.div`
+  display: flex;
+  justify-content: space-between;
+  a {
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+  }
+  span {
+    color: #666;
+  }
+`;
 
 const HomePage: React.FC = (props) => {
   console.log("props", props);
@@ -76,6 +86,15 @@ const HomePage: React.FC = (props) => {
           If you like my work, we should meet up. 
           My email is m.y.hua@hotmail.com.
         </p>
+        <Links>
+          <a href="https://projects.mingyuanhua.github.io">Projects</a>
+          <span>∙</span>
+          <a href="">Home</a>
+          <span>∙</span>
+          <a href="https://www.linkedin.com/in/huamingyuan">LinkedIn</a>
+          <span>∙</span>
+          <a href="mailto:m.y.hua+site@hotmail.com">Contact</a>
+        </Links>
       </div>
     </HomePageDiv>
   );
