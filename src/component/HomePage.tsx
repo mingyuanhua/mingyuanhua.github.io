@@ -1,8 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
+import Projects from './Projects';
 
 const HomePageDiv = styled.div`
   display: flex;
+  flex-direction: column; /* 添加这一行，将子元素在垂直方向上排列 */
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -87,15 +89,17 @@ const HomePage: React.FC = (props) => {
           My email is m.y.hua@hotmail.com.
         </p>
         <Links>
-          <a href="https://mingyuanhua.github.io/projects">Projects</a>
-          <span>∙</span>
           <a href="">Home</a>
+          <span>∙</span>
+          <a href="https://github.com/mingyuanhua">Projects</a>
           <span>∙</span>
           <a href="https://www.linkedin.com/in/huamingyuan">LinkedIn</a>
           <span>∙</span>
           <a href="mailto:m.y.hua+site@hotmail.com">Contact</a>
         </Links>
       </div>
+
+      <Projects /> 
     </HomePageDiv>
   );
 };

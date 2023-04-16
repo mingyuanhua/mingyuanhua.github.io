@@ -1,5 +1,5 @@
-import * as S from "./Projects.styles";
-import React from "react";
+import * as S from './Projects.styles';
+import React from 'react';
 
 interface HoverVideoProps {
   src?: string;
@@ -49,7 +49,7 @@ const HoverVideo: React.FC<HoverVideoProps> = ({ src, thumbnailTime }) => {
 const items = [
   {
     title: "test",
-    src: "https://www.youtube.com/watch?v=p9-WJmY_zU0&t=23s",
+    src: "https://drive.google.com/file/d/1WbVp5n4tD07iBz3jhrlnvccdsA4xJ_V5/view?usp=share_link",
     thumbnailTime: 5,
   },
 ];

@@ -1,18 +1,13 @@
-import React from "react";
-import { BrowserRouter as Router, RouterProvider, createBrowserRouter } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import HomePage from "./component/HomePage";
-import Projects from "./component/Projects";
+import HomePage from './component/HomePage';
 
 function App() {
   const routes = [
     {
       path: "/",
       element: <HomePage />,
-    },
-    {
-      path: "/projects",
-      element: <Projects />,
     }
   ];
 
