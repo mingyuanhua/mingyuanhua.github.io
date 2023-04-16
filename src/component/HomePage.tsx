@@ -87,7 +87,7 @@ const HomePage: React.FC = (props) => {
           My email is m.y.hua@hotmail.com.
         </p>
         <Links>
-          <a href="https://projects.mingyuanhua.github.io">Projects</a>
+          <a href="https://mingyuanhua.github.io/projects">Projects</a>
           <span>∙</span>
           <a href="">Home</a>
           <span>∙</span>
