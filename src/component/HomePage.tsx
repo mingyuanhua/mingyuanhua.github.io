@@ -4,19 +4,25 @@ import Projects from './Projects';
 
 const HomePageDiv = styled.div`
   display: flex;
-  flex-direction: column; /* 添加这一行，将子元素在垂直方向上排列 */
+  flex-direction: column; /* 将子元素在垂直方向上排列 */
   justify-content: center;
   align-items: center;
   height: 100%;
-  position: fixed;
   width: 100%;
   font-family: Quicksand;
   .bio {
+    position: absolute;
+    top: 50%; /* 将元素的顶部定位到视口垂直居中 */
+    left: 50%; /* 将元素的左侧定位到视口水平居中 */
+    transform: translate(-50%, -50%); /* 使用 transform 属性将元素在水平和垂直方向上向左和向上移动自身的50%，从而实现居中效果 */
     max-width: 400px;
     width: 100%;
     padding: 16px;
     font-size: 18px;
     margin-bottom: 80px;
+  }
+  .proj {
+    margin-top: 60%; /* 调整距离 bio 的间距 */
   }
   .footer {
     position: absolute;
@@ -42,7 +48,7 @@ const HomePageDiv = styled.div`
 `;
 
 const HomePageBackground = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -67,11 +73,6 @@ export const Links = styled.div`
 const HomePage: React.FC = (props) => {
   console.log("props", props);
 
-  let themeKey: string | null = null;
-  if (window.location.hash) {
-    themeKey = window.location.hash.substr(1);
-  }
-
   return (
     <HomePageDiv>
       <HomePageBackground></HomePageBackground>
@@ -89,7 +90,7 @@ const HomePage: React.FC = (props) => {
           My email is m.y.hua@hotmail.com.
         </p>
         <Links>
-          <a href="">Home</a>
+          <a href="mingyuanhua.github.io">Home</a>
           <span>∙</span>
           <a href="https://github.com/mingyuanhua">Projects</a>
           <span>∙</span>
@@ -99,9 +100,10 @@ const HomePage: React.FC = (props) => {
         </Links>
       </div>
 
-      <Projects /> 
+      <div className="proj">
+        <Projects />
+      </div>
     </HomePageDiv>
   );
 };
-
 export default HomePage;

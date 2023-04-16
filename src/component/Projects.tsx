@@ -13,7 +13,7 @@ const HoverVideo: React.FC<HoverVideoProps> = ({ src, thumbnailTime }) => {
       ref.current.currentTime = thumbnailTime || 0;
       ref.current.pause();
     }
-  }, []);
+  }, [thumbnailTime]);
 
   return (
     <S.HoverVideo
@@ -49,7 +49,32 @@ const HoverVideo: React.FC<HoverVideoProps> = ({ src, thumbnailTime }) => {
 const items = [
   {
     title: "test",
-    src: "https://drive.google.com/file/d/1WbVp5n4tD07iBz3jhrlnvccdsA4xJ_V5/view?usp=share_link",
+    src: "https://storage.googleapis.com/john-gains/10%20muscle%20ups.mp4",
+    thumbnailTime: 5,
+  },
+  {
+    title: "test",
+    src: "https://storage.googleapis.com/john-gains/10%20muscle%20ups.mp4",
+    thumbnailTime: 5,
+  },
+  {
+    title: "test",
+    src: "https://storage.googleapis.com/john-gains/10%20muscle%20ups.mp4",
+    thumbnailTime: 5,
+  },
+  {
+    title: "test",
+    src: "https://storage.googleapis.com/john-gains/10%20muscle%20ups.mp4",
+    thumbnailTime: 5,
+  },
+  {
+    title: "test",
+    src: "https://storage.googleapis.com/john-gains/10%20muscle%20ups.mp4",
+    thumbnailTime: 5,
+  },
+  {
+    title: "test",
+    src: "https://storage.googleapis.com/john-gains/10%20muscle%20ups.mp4",
     thumbnailTime: 5,
   },
 ];
@@ -57,7 +82,7 @@ const items = [
 const Projects: React.FC = (props) => {
   return (
     <S.Wrapper>
-      <h1>Progress</h1>
+      <h1>My Projects</h1>
       <S.Items>
         {items.map((item) => {
           return (
