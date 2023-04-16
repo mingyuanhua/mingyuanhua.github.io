@@ -1,13 +1,17 @@
-import React from 'react';
-import Game from './component/Game'; // 导入游戏组件
+import React from "react";
+import { BrowserRouter as Router, RouterProvider, createBrowserRouter } from "react-router-dom";
 
-const App: React.FC = () => {
-  return (
-    <div>
-      <h1>Welcome to My Personal Website</h1>
-      <Game /> {/* 渲染游戏组件 */}
-    </div>
-  );
-};
+import HomePage from "./component/HomePage";
+
+function App() {
+  const routes = [
+    {
+      path: "/",
+      element: <HomePage />,
+    }
+  ];
+
+  return <RouterProvider router={createBrowserRouter(routes)} />
+}
 
 export default App;
