@@ -100,9 +100,6 @@ const HomePage: React.FC = (props) => {
         </Links>
       </div>
 
-      <div className="proj">
-        <Projects />
-      </div>
     </HomePageDiv>
   );
 };
